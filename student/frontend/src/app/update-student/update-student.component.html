@@ -1,0 +1,60 @@
+
+<form action=""(ngSubmit)="update()">
+    <table id="customers">
+        <h1>student update form</h1>
+       
+        <tr>
+            <td> Student Name  : </td>
+            <td><input type="text" value="" name="studentname"[(ngModel)]="updateStudent.studentName"></td>
+        </tr>
+        <tr>
+            <td> Password : </td>
+            <td><input type="text" value="" name="Password"[(ngModel)]="updateStudent.password"></td>
+        </tr>
+        <tr>
+            <td> Email : </td>
+            <td><input type="text" value="" name="Email" [(ngModel)]="updateStudent.studentDetails.email"></td>
+        </tr>
+        <tr>
+            <td> Student Address  : </td>
+            <td><input type="text" value="" name="addresss" [(ngModel)]="updateStudent.studentDetails.studentAddress"></td>
+        </tr>
+        <tr>
+            <td> Contact Number : </td>
+            <td><input type="text" value="" name="coursename"[(ngModel)]="updateStudent.studentDetails.contactNumber"></td>
+        </tr>
+        <tr>
+            <button routerLink="" type="submit" (click)="update()">submit</button>
+        </tr>
+        
+    </table>
+</form>
+<div class="list">
+   
+<table class = "table">
+    
+    <thead>
+        <tr> <h2>student List</h2></tr>
+        <tr>
+            <th> Registration ID </th>
+            <th> Student Name </th>
+            <th> Password </th>
+            <th> Email </th>
+            <th> Student Address </th>
+            <th> Contact Number </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  >
+            <td> {{ updateStudent.registrationId }} </td>
+            <td> {{ updateStudent.studentName }} </td>
+            <td> {{ updateStudent.password }} </td>
+            <td> {{ updateStudent.studentDetails.email }} </td>
+            <td> {{ updateStudent.studentDetails.studentAddress }} </td>
+            <td> {{ updateStudent.studentDetails.contactNumber }} </td>
+           
+        </tr>
+
+    </tbody>
+</table></div>
+

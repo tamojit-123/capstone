@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      {{title}}
+    </a>
+  </div>
+</nav>
+
+<div class="container" style="margin-top: 20px;">
+  <div class="card mx-auto" style="width: 50rem;">
+    <div class="card-header">Enter Student Information</div>
+    <form class="col-10 g-3 needs-validation card-body" action="" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label class="form-label">Student ID:</label>
+        <input class="form-control" type="number" value="" name="studentId" [(ngModel)]="studentObj.studentId" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Student Name:</label>
+        <input class="form-control" type="text" value="" name="studentName" [(ngModel)]="studentObj.studentName" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Student Email:</label>
+        <input class="form-control" type="text" value="" name="email" [(ngModel)]="studentObj.studentDetails.email" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Student Address:</label>
+        <input class="form-control" type="text" value="" name="studentAddress" [(ngModel)]="studentObj.studentDetails.studentAddress" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Student Contact Number:</label>
+        <input class="form-control" type="number" value="" name="contactNumber" [(ngModel)]="studentObj.studentDetails.contactNumber" required>
+      </div>
+
+      <div class="mb-3">
+        <!-- Button -->
+        <div class="col-md-offset-3 col-md-9">
+          <input type="submit" name="submit" value="submit" class="btn btn-primary" href="#">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Edit | Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor = "let studentOne of students">
+        <td>{{ studentOne.studentId }}</td>
+        <td>{{ studentOne.studentName }}</td>
+        <td>{{ studentOne.studentDetails.email }}</td>
+        <td>{{ studentOne.studentDetails.studentAddress }}</td>
+        <td>{{ studentOne.studentDetails.contactNumber }}</td>
+        <td>
+          <button class="btn btn-primary btn-xs" (click)="update(studentOne.studentId)"><i
+            class="fas fa-user-edit"></i></button> |
+          <button class="btn btn-danger btn-xs" (click)="deleteStudent(studentOne.studentId)"><i
+          class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

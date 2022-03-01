@@ -1,0 +1,77 @@
+<h1 class="centre">Register Student</h1><br>
+<form action="" (ngSubmit)="onSubmit()">
+    <table id="customers">
+        <tr>
+            <td> Registration Id : </td>
+            <td><input type="number" value="" name="registrationId" [(ngModel)]="studentObj.registrationId"></td>
+        </tr>
+        <tr>
+            <td> Student Name : </td>
+            <td><input type="text" value="" name="studentname" [(ngModel)]="studentObj.studentName"></td>
+        </tr>
+        <tr>
+            <td> Password : </td>
+            <td><input type="password" value="" name="password" [(ngModel)]="studentObj.password"></td>
+        </tr>
+        <tr>
+            <td> Email : </td>
+            <td><input type="text" value="" name="email" [(ngModel)]="studentObj.studentDetails.email"></td>
+        </tr>
+        <tr>
+            <td> Student Address : </td>
+            <td><input type="text" value="" name="studentAddress"
+                    [(ngModel)]="studentObj.studentDetails.studentAddress"></td>
+        </tr>
+        <tr>
+            <td> Contact Number : </td>
+            <td><input type="text" value="" name="contactNumber" [(ngModel)]="studentObj.studentDetails.contactNumber">
+            </td>
+        </tr>
+        <tr>
+            <button type="submit" class="btn btn-success" style="margin-left: auto;">Submit</button>
+            <!-- <button type="button" (click)="update()" style="margin: auto" >Update</button>
+             -->
+        </tr>
+
+    </table>
+    <br>
+    <br>
+</form>
+<div class="list">
+    <h1 class="t"> Student List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Registration ID </th>
+                <th> Student Name </th>
+                <th> Password </th>
+                <th> Email </th>
+                <th> Student Address </th>
+                <th> Contact Number </th>
+                <th> Update/Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student1 of students">
+                <td> {{ student1.registrationId }} </td>
+                <td> {{ student1.studentName }} </td>
+                <td> {{ student1.password }} </td>
+                <td> {{ student1.studentDetails.email }} </td>
+                <td> {{ student1.studentDetails.studentAddress }} </td>
+                <td> {{ student1.studentDetails.contactNumber }} </td>
+                <td><button type="button" (click)="updatenav(student1.registrationId)">update</button>
+                    <button type="button" (click)="deleteStudent(student1.registrationId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<br>
+
+<!-- <div class="form-group">
+    <label>Delete Student By Registration ID</label>
+    <div class="del">
+        <input type="text" class="form-control" id="studentdd" [(ngModel)]="id" name="studentdd">
+    </div>
+</div> -->

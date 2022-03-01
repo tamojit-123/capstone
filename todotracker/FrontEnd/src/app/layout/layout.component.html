@@ -1,0 +1,68 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark white" [containerInside]="false" mdbStickyHeader>
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand active fw-bold" href="/home" style="color: black;"><img
+          src="assets/tasks.png"
+          height="40"
+          alt="todo-tracker"
+          loading="lazy"
+          style="margin-top: -1px;"
+  />  TO-DO Tracker</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/about">About</a>
+      </li>
+      <li *ngIf='!isLoggedIn' class="nav-item">
+        <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/feature">Feature</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/contact">Contact</a>
+      </li>
+      <li *ngIf='isLoggedIn' class="nav-item">
+        <a class="nav-link active fw-bold" aria-current="page" style="color: black;" href="/cards">Todos</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf='isLoggedIn' class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light active fw-bold" style="color: black;" mdbWavesEffect>
+          <i class="fas fa-user-alt"></i> {{email}}<span class="caret"></span></a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a class="dropdown-item waves-light fw-normal" mdbWavesEffect href="/profile"><i class="fas fa-user-alt"></i> User Details</a>
+          <a class="dropdown-item waves-light fw-normal" mdbWavesEffect (click)="openModal()"><i class="fas fa-plus-circle"></i> Add Todo</a>
+          <div class="divider dropdown-divider"></div>
+          <a class="dropdown-item waves-light fw-normal" mdbWavesEffect (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+      </li>
+      <li *ngIf='!isLoggedIn' class="nav-item">
+        <a class="btn px-3" aria-current="page" href="/login" role="button"><i class="fas fa-sign-in-alt"></i> Login</a>
+      </li>
+      <li *ngIf='!isLoggedIn' class="nav-item">
+        <a class="btn px-3" aria-current="page" href="/register" role="button"><i class="fas fa-user-plus"></i> Register</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+</mdb-navbar>
+
+<div>
+  <router-outlet></router-outlet>
+  <a *ngIf='isLoggedIn' (click)="openModal()" class="float" data-toggle="tooltip" data-placement="right" title="New Task">
+    <mdb-icon fas icon="plus" class="task-form" style="color: white;"></mdb-icon>
+  </a>
+</div>
+
+<div>
+  <a *ngIf='!isLoggedIn' class="float" data-toggle="tooltip" data-placement="right" title="New Task" href="/home">
+    <i class="fas fa-caret-up" style="color: white;"></i>
+  </a>
+</div>
